@@ -11,8 +11,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-//import com.lucasko.controller.APIsController;
-
 public class apiTest {
 	
 	public String url="http://192.168.30.120:28080";
@@ -31,7 +29,6 @@ public class apiTest {
 
 	@After
 	public void tearDown() throws Exception {
-		//url=null;
 	}
 	
 	public static String getHTML(String urlToRead) throws Exception {
@@ -46,7 +43,7 @@ public class apiTest {
 	      }
 	      rd.close();
 	      return result.toString();
-	   }
+	   }	
 	
 	@Test
 	public void test4() throws Exception{
