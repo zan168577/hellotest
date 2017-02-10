@@ -49,7 +49,7 @@ public class apiTest {
 	   }
 	
 	@Test
-	public void test1() throws Exception{
+	public void test4() throws Exception{
 //		System.out.println("---------------------------");
 //		fail("Not yet implemented");
 		
@@ -62,7 +62,7 @@ public class apiTest {
 	}
 
 	@Test
-	public void test2() throws Exception {
+	public void test5() throws Exception {
 		String input="5";
 		String output="5";
 		
@@ -72,7 +72,7 @@ public class apiTest {
 	}
 	
 	@Test
-	public void test3() throws Exception {
+	public void test6() throws Exception {
 		String input="5";
 		String output="12345";
 		
