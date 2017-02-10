@@ -2,6 +2,9 @@ package test.java.Junit;
 
 import static org.junit.Assert.*;
 
+import java.io.*;
+import java.net.*;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -12,7 +15,7 @@ import org.junit.Test;
 
 public class apiTest {
 	
-	//public APIsController apii;
+	public String url="http://192.168.30.120:28080";
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -24,36 +27,57 @@ public class apiTest {
 
 	@Before
 	public void setUp() throws Exception {
-		//apii=new APIsController();
 	}
 
 	@After
 	public void tearDown() throws Exception {
-		//apii=null;
+		//url=null;
 	}
-
+	
+	public static String getHTML(String urlToRead) throws Exception {
+	      StringBuilder result = new StringBuilder();
+	      URL url = new URL(urlToRead);
+	      HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	      conn.setRequestMethod("GET");
+	      BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+	      String line;
+	      while ((line = rd.readLine()) != null) {
+	         result.append(line);
+	      }
+	      rd.close();
+	      return result.toString();
+	   }
+	
 	@Test
-	public void test() {
+	public void test1() throws Exception{
 //		System.out.println("---------------------------");
-//		  System.out.println("test java.openyu.org");
-//		  System.out.println("---------------------------");
 //		fail("Not yet implemented");
-//		String input="5";
-//		String output="5";
-//		assertEquals(output, apii.count2(input));
+		
+		String input="1";
+		String output="1";
+		
+		String value = "/count?num="+input;
+	      
+		assertEquals(output, getHTML(url+value));
 	}
 
 	@Test
-	public void test2() {
-//		int input=1;
-//		String output="1";
-//		assertEquals(output, apii.count(input));
+	public void test2() throws Exception {
+		String input="5";
+		String output="5";
+		
+		String value = "/num?num="+input;
+	      
+		assertEquals(output, getHTML(url+value));
 	}
 	
 	@Test
-	public void test3() {
-//		int input=5;
-//		String output="12345";
-//		assertEquals(output, apii.count(input));
+	public void test3() throws Exception {
+		String input="5";
+		String output="12345";
+		
+		String value = "/count?num="+input;
+	      
+		assertEquals(output, getHTML(url+value));
 	}
 }
